@@ -1,0 +1,6 @@
+[package]
+name = "rust_algos"
+version = "0.1.0"
+authors = ["hGriff0n <ghooper96@gmail.com>"]
+
+[dependencies]
