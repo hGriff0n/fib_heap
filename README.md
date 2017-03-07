@@ -4,3 +4,10 @@ The goal of this project is to present a singular location where I have implemen
 Current Algorithms and Data Structures List:
 
   1) Fibonacci Heap
+
+Project Organization:
+
+    src (rust_algos)
+     |- algs (algorithms)
+     |   |- sorts
+     |- coll (collections)
