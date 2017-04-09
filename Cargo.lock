@@ -1,4 +1,11 @@
 [root]
-name = "fib_heap"
+name = "rust_algos"
+version = "0.1.0"
+dependencies = [
+ "my_std 0.1.0",
+]
+
+[[package]]
+name = "my_std"
 version = "0.1.0"
 

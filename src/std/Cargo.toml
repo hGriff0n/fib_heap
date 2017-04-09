@@ -1,9 +1,6 @@
 [package]
-name = "rust_algos"
+name = "my_std"
 version = "0.1.0"
 authors = ["hGriff0n <ghooper96@gmail.com>"]
 
 [dependencies]
-
-[dependencies.my_std]
-path = "src/std"
