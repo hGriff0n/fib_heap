@@ -1,0 +1,46 @@
+A fibonacci heap can be divided into two phases
+  1) Collection
+  2) Consolidation
+
+During collection, nothing really gets done. Adding a node just pushes it on to the back
+of the internal "tree collection" of all the nodes. A pointer is kept that marks the
+location of the "top" element and that does get updated when a new element is added.
+There might be some additional balancing that gets done here, I haven't been able to determine what.
+
+Consolidation is only triggered by popping an element from the stack. The "top" element
+is removed and any sub-trees are added to the total queue. Then this queue gets reduced,
+ensuring that the smallest element is at the top of one of the new trees.
+
+FibHeap Operations:
+  insert: O(1)
+    create a new tree using the new element
+    add to the root list and update the min pointer
+  peek: O(1)
+    return the minimum element
+  merge: O(1)
+    combine the root list queue
+    pick the minimum, min element
+  pop: O(log n)
+    copy the minimum element into a temp variable
+    add all subtrees of the min element to the root list
+    update the min pointer
+    consolidate trees (so no 2 roots have the same rank)
+  dec_key: O(1) <- everything I've seen uses a node structure returned from insert
+    decrease value of element at x
+    if heap order is maintained, continue
+    recursively perform the following procedure until x is a root
+      p = parent(x)
+      cut tree rooted at x and add it to the root list
+      unmark x if x is marked
+      if p is unmarked, mark p and exit
+      x = p
+  delete: O(log n)
+    decrease-key to -inf
+    delete_min element
+
+Key Concepts:
+  rank(x) - max rank of any node in sub-tree | number of children
+  Heap-ordered
+  Minimum pointer
+    parent nodes only point to the smallest sub-nodes
+  Marked node
