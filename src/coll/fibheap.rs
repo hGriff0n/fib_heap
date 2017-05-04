@@ -1,11 +1,15 @@
-
+use std::cmp::Ordering;
+#[allow(unused_imports)]
+use std::fmt::Debug;
 
 struct FibHeapNode<T: Ord> {
     elem: Option<T>,
+    subnodes: Vec<FibHeapNode<T>>,
+    marked: bool,
 }
 
 pub struct FibHeap<T: Ord> {
-    trees: Vec<FibHeapNode<T>>,
+    forest: Vec<FibHeapNode<T>>,
     max_index: usize,
     count: usize
 }
@@ -13,7 +17,7 @@ pub struct FibHeap<T: Ord> {
 impl<T: Ord> FibHeap<T> {
     pub fn new() -> FibHeap<T> {
         FibHeap{
-            trees: vec!(),
+            forest: Vec::with_capacity(10),
             max_index: 0,
             count: 0,
         }
@@ -21,34 +25,70 @@ impl<T: Ord> FibHeap<T> {
 
     // Add an element to the heap
     pub fn push(&mut self, elem: T) {
-        self.count += 1;
-
-        // Why can't I write "if let Some(e) = self.peek() {" ??? (assignment to borrowed 'self.max_index')
-        if let Some(e) = self.trees.get(self.max_index).and_then(|tree| tree.elem.as_ref()) {
-            if e < &elem {
-                self.max_index = self.trees.len();
-            }
+        // Update `max_index` if the new element is larger than the old max
+        if FibHeap::compare_elements(Some(&elem), self.peek()) == Ordering::Greater {
+            self.max_index = self.forest.len();
         }
-        
-        self.trees.push(FibHeapNode{ elem: Some(elem) });
+
+        // Add the new element to `forest`
+        self.count += 1;
+        self.forest.push(FibHeapNode{ elem: Some(elem), subnodes: vec!(), marked: false });
     }
 
     // Get the max element if one exists
     pub fn peek(&self) -> Option<&T> {
-        self.trees.get(self.max_index).and_then(|tree| tree.elem.as_ref())
+        self.forest.get(self.max_index).and_then(|tree| tree.elem.as_ref())
     }
+    
     // Move all elements from another heap into this one
-    pub fn merge(&mut self, other: Self) {
-        
+    pub fn merge(&mut self, mut other: Self) {
+        if FibHeap::compare_elements(self.peek(), other.peek()) == Ordering::Less {
+            self.max_index = self.forest.len() + other.max_index;
+        }
+
+        self.forest.append(&mut other.forest);
+        self.count += other.count;
+    }
+
+    // Puts the heap into the fibonacci state after a pop
+    // TODO: Implement
+    fn restore_state(&mut self) {
+
     }
 
     // Pop the top element from the heap
     pub fn pop(&mut self) -> Option<T> {
-        match self.trees.get(self.max_index) {
-            Some(tree) => {
-                None
-            },
+        // Put the max element on the end of the stack (`pop` apparently doesn't have borrowing issues)
+        let back_index = self.forest.len();
+        if back_index > 0 && back_index - 1 != self.max_index {
+            self.forest.swap(self.max_index, back_index - 1);
+        }
+
+        // Get the max element if possible
+        match self.forest.pop() {
+            // The tree was empty
             None => None,
+
+            // Fix up the heap
+            Some(mut tree) => {
+                self.count -= 1;
+
+                // Add the popped subtree to the main forest
+                self.forest.append(&mut tree.subnodes);
+                
+                // Restore the fibonacci state
+                self.restore_state();
+
+                // Find the max element in the new heap and store its index
+                self.max_index =
+                    match self.forest.iter().enumerate().max_by(|a, b| FibHeap::compare_nodes(a.1, b.1)) {
+                        Some((idx, _)) => idx,
+                        None => 0,
+                    };
+
+                // Return the element
+                tree.elem
+            },
         }
     }
 
@@ -70,4 +110,20 @@ impl<T: Ord> FibHeap<T> {
     // into_vec
     // peek_mut
     // iter
+    
+    // Helper methods to abstract the process of ordering FibHeapNodes (could just implement Ordering)
+    fn compare_nodes(a: &FibHeapNode<T>, b: &FibHeapNode<T>) -> Ordering {
+        FibHeap::compare_elements(a.elem.as_ref(), b.elem.as_ref())
+    }
+
+    fn compare_elements(a: Option<&T>, b: Option<&T>) -> Ordering {
+        match (a, b) {
+            (Some(a), Some(b)) if a < b => Ordering::Less,
+            (Some(a), Some(b)) if a > b => Ordering::Greater,
+            (Some(_), _) => Ordering::Less,
+            (_, Some(_)) => Ordering::Greater,
+            _ => Ordering::Equal
+        }
+    }
+
 }
