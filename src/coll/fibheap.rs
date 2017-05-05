@@ -1,20 +1,26 @@
-use std::cmp::Ordering;
-#[allow(unused_imports)]
-use std::fmt::Debug;
+use std::cmp::{Ordering, max};
+use std::fmt;
+use std::fmt::{Debug, Formatter};
+use std::collections::HashMap;
+use std::collections::hash_map::Entry;
 
-struct FibHeapNode<T: Ord> {
+// TODO: Refactoring
+// TODO: Figure out dec_key operation
+
+struct FibHeapNode<T: Ord + Debug> {
     elem: Option<T>,
     subnodes: Vec<FibHeapNode<T>>,
     marked: bool,
+    rank: usize,
 }
 
-pub struct FibHeap<T: Ord> {
+pub struct FibHeap<T: Ord + Debug> {
     forest: Vec<FibHeapNode<T>>,
     max_index: usize,
     count: usize
 }
 
-impl<T: Ord> FibHeap<T> {
+impl<T: Ord + Debug> FibHeap<T> {
     pub fn new() -> FibHeap<T> {
         FibHeap{
             forest: Vec::with_capacity(10),
@@ -32,7 +38,7 @@ impl<T: Ord> FibHeap<T> {
 
         // Add the new element to `forest`
         self.count += 1;
-        self.forest.push(FibHeapNode{ elem: Some(elem), subnodes: vec!(), marked: false });
+        self.forest.push(FibHeapNode{ elem: Some(elem), subnodes: vec!(), marked: false, rank: 0 });
     }
 
     // Get the max element if one exists
@@ -51,9 +57,50 @@ impl<T: Ord> FibHeap<T> {
     }
 
     // Puts the heap into the fibonacci state after a pop
-    // TODO: Implement
     fn restore_state(&mut self) {
+        let mut i = 0;
+        let mut rank_map = HashMap::new();              // Map[NodeRank => NodeIndex]
 
+        loop {
+            // Due to borrowing of `rank_map` and `forest` in the initial match statement
+            // `foo` gets assigned to a StateBehavior enum in order to control the updating
+            // of `rank_map` (reflect heap condensing) and the exiting of the parent loop
+            let foo = match self.forest.get(i).and_then(|tree| Some(rank_map.entry(tree.rank))) {
+                Some(Entry::Occupied(former)) => {
+                    let (_, idx) = former.remove_entry();
+
+                    // Order the nodes so that the biggest element remains in the vector
+                    match FibHeap::compare_nodes(&self.forest[i], &self.forest[idx]) {
+                        Ordering::Greater => self.forest.swap(i, idx),
+                        _ => (),
+                    }
+
+                    // Get the two trees to operate on
+                    let cur_tree = self.forest.remove(i);
+                    let ref mut parent = self.forest[idx];
+
+                    // Merge the old tree into the new parent
+                    parent.rank = max(parent.rank, cur_tree.rank + 1);
+                    parent.subnodes.push(cur_tree);
+
+                    // Specify the new rank assignment
+                    StateBehavior::Modify(parent.rank, idx)
+                },
+                Some(Entry::Vacant(entry)) => {
+                    // Modify the entry inplace and move on
+                    entry.insert(i);
+                    StateBehavior::Continue
+                },
+                None => StateBehavior::Break,
+            };
+
+            // Handle the StateBehavior enum as needed
+            match foo {
+                StateBehavior::Modify(rank, idx) => { rank_map.insert(rank, idx); },
+                StateBehavior::Break => break,
+                StateBehavior::Continue => { i += 1; }
+            }
+        }
     }
 
     // Pop the top element from the heap
@@ -103,6 +150,7 @@ impl<T: Ord> FibHeap<T> {
     }
 
     // functions to look at adding later
+    // dec_key - (min) fib heaps have this method but I'm unsure of how to add it
     // append - merge but doesn't destroy the other heap
     // clear - remove all elements from the heap
     // drain - cleans the heap, returns an iterator over the removed elements
@@ -126,4 +174,22 @@ impl<T: Ord> FibHeap<T> {
         }
     }
 
+}
+
+enum StateBehavior {
+    Break,
+    Continue,
+    Modify(usize, usize),
+}
+
+impl<T: Ord + Debug> Debug for FibHeapNode<T> {
+    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+        write!(f, "(elem: {:?}, sub: {:?})", self.elem, self.subnodes)
+    }
+}
+
+impl<T: Ord + Debug> Debug for FibHeap<T> {
+    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+        write!(f, "#size: {}, {:?}", self.count, self.forest)
+    }
 }
