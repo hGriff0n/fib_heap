@@ -1,0 +1,11 @@
+Algorithms:
+  A*
+  Various sorting algorithms
+
+Collections:
+  Bloom Filter
+  Rope
+  Skip List
+
+std:
+  Figure out where to start

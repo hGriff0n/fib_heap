@@ -1,6 +1,6 @@
 extern crate rust_algos;
 
-use rust_algos::coll::fibheap::FibHeap;
+use rust_algos::*;
 
 fn main() {
     let mut heap = FibHeap::new();

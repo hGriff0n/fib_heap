@@ -1,0 +1,1113 @@
+Neat Datastructures
+  https://stackoverflow.com/questions/500607/what-arte-the-lesser-known-but-useful-data-structures\
+  Wikipedia: List of data structures
+    String
+    Zippers
+    Abstract Data Types
+      Container
+      List
+      Associative Array
+      Multimap
+      Set
+      Bag
+      Multiset
+      Stack
+      Queue
+      Double-ended queue
+      Priority queue
+      Tree
+      Graph
+  Linear data structures
+    Arrays
+      Array
+      Bit array
+      Bit field
+      Bitboard
+      Bitmap
+      Circular buffer
+      Control table
+      Image
+      Dope vector
+      Dynamic array
+      Gap buffer
+      Heightmap
+      Lookup table
+      Matrix
+      Parallel array
+      Sorted array
+      Sparse matrix
+      Lliffe vector
+      Variable-length array
+    Lists
+      Doubly linked list
+      Array list
+      Linked list
+      Self-organizing list
+      Skip list
+      Unrolled linked list
+      VList
+      Conc-Tree list
+      Xor linked list
+      Zipper
+      Doubly connected edge list
+      Difference list
+      Free list
+  Trees
+    KD-trees
+    Binary Trees
+      AA tree
+      AVL tree
+      Binary search tree
+      Binary tree
+      Cartesian tree
+      Left-child right-sibling binary tree
+      Order statistic tree
+      Pagoda
+      Randomized binary search tree
+      Red-black tree
+      Rope
+      Scapegoat tree
+      Self-balancing binary search tree
+      Splay tree
+      T-tree
+      Tango tree
+      Threaded binary tree
+      Top tree
+      Treap
+      WAVL tree
+      Weight-balanced tree
+    B-trees
+      B-tree
+      B+ tree
+      B* tree
+      B sharp tree
+      Dancing tree
+      2-3 tree
+      2-3-4 tree
+      Queap
+      Fusion tree
+      Bx-tree
+      AList
+    Heaps
+      Heap
+      Binary heap
+      Weak heap
+      Binomial heap
+      Fibonacci heap
+      AF-heap
+      Leonardo heap
+      2-3 heap
+      Soft heap
+      Pairing heap
+      Leftist heap
+      Treap
+      Beap
+      Skew heap
+      Ternary heap
+      D-ary heap
+      Brodal queue
+    Trie
+    Radix tree
+    Suffix tree
+    Suffix array
+    Compressed suffix array
+    FM-index
+    Generalised suffix tree
+    B-trie
+    Judy array
+    X-fast trie
+    Y-fast trie
+    Merkle Tree
+    Ctrie
+    Multiway trees
+      Ternary tree
+      K-ary tree
+      And-or tree
+      (a,b)-tree
+      Link/cut tree
+      SPQR-tree
+      Spaghetti stack
+      Disjoint-set data structure
+      Fusion tree
+      Enfilade
+      Exponential tree
+      Fenwick tree
+      Van Emde Boas tree
+      Rose tree
+    Space-partitioning tree
+      Segment tree
+      Interval tree
+      Range tree
+      Bin
+      K-d tree
+        Implicit
+        Min/max
+        Relaxed
+        Adaptive
+      Quadtree
+      Octree
+      Linear octree
+      Z-order
+      UB-tree
+      R-tree
+      R+-tree
+      R*-tree
+      Hilbert R-tree
+      X-tree
+      Metric tree
+      Cover tree
+      M-tree
+      VP-tree
+      BK-tree
+      Bounding interval heirarchy
+      Bounding volume heirarchy
+      BSP tree
+      Rapidly exploring random tree
+    Application-specific tree
+      Abstract syntax tree
+      Parse tree
+      Decision tree
+      Alternating decision tree
+      Minimax tree
+      Expectiminimax tree
+      Finger tree
+      Expression tree
+      Log-structured merge-tree
+      Lexicographic Search Tree
+  Hashes
+    Bloom filter
+    Count-min sketch
+    Distributed hash table
+    Double hashing
+    Dynamic perfect hash table
+    Hash array mapped trie
+    Hash list
+    Hash table
+    Hash tree
+    Hash trie
+    Koorde
+    Prefix Hash tree
+    Rolling hash
+    MinHash
+    Quotient filter
+    Ctrie
+  Graphs
+    Graph
+    Adjacency list
+    Adjacency matrix
+    Graph-structured stack
+    Scene graph
+    Binary decision diagram
+    Zero-suppressed decision diagram
+    And-inverter graph
+    Directed graph
+    Directed acyclic graph
+    Propositional directed acyclic graph
+    Multigraph
+    Hypergraph
+  Lightmap
+  Winged edge
+  Doubly connected edge list
+  Quad-edge
+  Routing table
+  Symbol table
+
+Neat Algorithms
+  Hyperloglog
+  A*
+
+  blog.notdot.net: Damn cool algorithms
+  Wikipedia: List of algorithms
+
+  Automated Planning (https://en.wikipedia.org/wiki/Automated_planning_and_scheduling#Algorithms_for_planning)
+  Combinatorial Algorithms
+    Brent's algorithm
+    Floyd's cycle-finding algorithm
+    Gale-Shapley algorithm
+    Pseudorandom number generators
+      Blum Blum Shub
+      Lagged Fibonacci Generator
+      Linear Congruential generator
+      Mersenne Twister
+    Graph Algorithms
+      Coloring algorithm
+      Hopcroft-Karp algorithm
+      Hungarian algorithm
+      Pruefer coding
+      Tarjan's off-line least common ancestors algorithm
+      Topological sort
+      Graph drawing
+        Force-based algorithms (https://en.wikipedia.org/wiki/Force-directed_graph_drawing)
+        Spectral layout (https://en.wikipedia.org/wiki/Spectral_layout)
+      Network theory
+        Girvan-Newman algorithm
+        Hyperlink-Induced Topic Search
+        PageRank
+        TrustRank
+      Flow Networks
+        Dinic's algorithm
+        Edmonds-Karp algorithm
+        Ford-Fulkerson algorithm
+        Karger's algorithm
+        Push-relabel algorithm
+      Graph Routing
+        Edmond's algorithm
+        Euclidean minimum spanning tree
+        Euclidean shortest path problem
+        Longest Path problem
+        Boruvka's Algorithm
+        Artikel Review
+        Kruksal's algorithm
+        Prim's algorithm
+        Reverse-delete algorithm
+        Nonblocking minimal spanning switch
+        Bellman-Ford algorithm
+        Dijkstra's algorithm
+        Floyd-Warshall algorithm
+        Johnson algorithm
+        Transitive closure
+        Travelling salesman problem
+        Christofides algorithm
+        Nearest neighbor algorithm
+        Warnsdorff's algorithm
+      Graph Search
+        A*
+        B*
+        Backtracking
+        Beam search
+        Beam stack search
+        Best-first search
+        Bidirectional search
+        Bloom filter
+        Breadth-first search
+        D*
+        Depth-first search
+        Dijkstra's algorithm
+        General Problem solver
+        Iterative deepening depth-first search
+        Jump point search
+        Lexicographic breadth-first search
+        Uniform-cost search
+        SSS*
+      Subgraphs
+        Cliques
+        Bron-Kerbosch algorithm
+        MaxCliqueDyn maximum clique algorithm
+        Strongly connected components
+        Path-based strong component algorithm
+        Kosaraju's algorithm
+        Tarjan's strongly connected components algorithm
+    Sequence algorithms
+      Approximate sequence matching
+        Bitap algorithm
+        Phonetic algorithms
+        Daitch-Mokotoff Soundex
+        Double Metaphone
+        Match Rating Approach
+        Metaphone
+        NYSIIS
+        Soundex
+        String metrics
+        Damerau-Levenshtein distance
+        Dice's coefficient
+        Hamming distance
+        Jaro-Winkler distance
+        Levenshtein distance
+        Trigram search
+      Selection algorithms (more)
+        Quickselect
+        Introselect
+      Sequence search
+        Linear search
+        Selection algorithm
+        Ternary search
+        Sorted lists
+        Binary search algorithm
+        Fibonacci search technique
+        Jump search
+        Predictive search
+        Uniform binary search
+      Sequence merging (ie. Merge algorithm)
+        Simple merge algorithm
+        k-way merge algorithm
+        Union
+      Sequence permutation
+        Fisher-Yates shuffle
+        Schensted algorithm
+        Steinhaus-Johnson-Trotter algorithm
+        Heap's permutation generation algorithm
+      Sequence alignment
+        Dynamic time warping
+        Hirschberg's algorithm
+        Needleman-Wunsch algorithm
+        Smith-Waterman algorithm
+      Sequence sorting (ie. Sorting algorithms)
+        Exchange sorts
+          Bubble sort
+          Cocktail shaker sort
+          Comb sort
+          Gnome sort
+          Odd-even sort
+          Quicksort
+        Bogosort
+        Stoogesort
+        Hybrid
+          Flashsort
+          Introsort
+          Timsort
+        Insertion sorts
+          Insertion sort
+          Library sort
+          Patience sort
+          Shell sort
+          Tree sort
+          Cycle sort
+        Merge sorts
+          Merge sort
+          Strand sort
+        Non-comparison sorts
+          Bread sort
+          Bucket sort
+          Burstsort
+          Counting sort
+          Pigeonhole sort
+          Postman sort
+          Radix sort
+        Selection sorts
+          Heapsort
+          Selection sort
+          Smooth sort
+        Bitonic sorter
+        Pancake sorting
+        Spaghetti sort
+        Topological sort
+        Samplesort
+      Subsequences
+        Kadane's algorithm
+        Longest common subsequence problem
+        Longest increasing subsequence problem
+        Shortest common subsequence problem
+      Substrings
+        Substring search
+        Aho-Corasick string matching algorithm
+        Boyer-Moore string search algorithm
+        Boyer-Moore-Horspool algorithm
+        Knuth-Morris-Pratt algorithm
+        Rabin-Karp string search algorithm
+        Zhu-Takaoka string matching algorithm
+        Ukkonen's algorithm
+  Computational mathematics
+    Abstract algebra
+      Chien search
+      Schreier-Sims algorithm
+      Todd-Coxeter algorithm
+    Computer algebra
+      Buchberger's algorithm
+      Cantor-Zassenhaus algorithm
+      Faugere F4 algorithm
+      Gosper's algorithm
+      Knuth-Bendix completion algorithm
+      Multivariate division algorithm
+      Pollard's kangaroo algorithm
+      Polynomial long division
+      Risch algorithm
+    Geometry
+      Closest pair problem
+      Collision detection
+      Cone algorithm
+      Convex hull algorithms
+        Graham scan
+        Quickhull
+        Gift wrapping algorithm
+        Chan's algorithm
+        Kirkpatrick-Seidel algorithm
+      Euclidean distance transform
+      Geometric hashing
+      Gilbert-Johnson-Keerthi distance algorithm
+      Jump-and-Walk algorithm
+      Laplacian smoothing
+      Line segment intersection
+      Bentley Ottmann algorithm
+      Shamos-Hoey algorithm
+      Minimum bounding box algorithms
+      Nearest neighbor search
+      Point in polygon algorithms
+      Point set registration
+      Rotating calipers
+      Shoelace algorithm
+      Triangulation
+        Delaunay triangulation
+        Ruppert's algorithm
+        Chew's second algorithm
+        Marching triangles
+        Polygon triangulation
+        Voronoi diagrams
+        Bowyer-Watson algorithm
+        Fortune's algorithm
+        Quasitriangulation
+    Number theoretic algorithms
+      Binary GCD algorithm
+      Booth's multiplication algorithm
+      Chakravala method
+      Discrete logarithm
+        Baby-step giant-step
+        Index calculus algorithm
+        Pollard's rho algorithm
+        Pohlig-Hellman algorithm
+      Euclidean algorithm
+      Extended euclidean algorithm
+      Integer factorization
+        Congruence of squares
+        Dixon's algorithm
+        Fermat's factorization method
+        General number field sieve
+        Lenstra elliptic curve factorization
+        Pollard's p-1 algorithm
+        Pollard's rho algorithm
+        prime factorization algorithm
+        Quadratic sieve
+        Shor's algorithm
+        Special number field sieve
+        Trial division
+      Multiplication algorithms
+        Karatsuba algorithm
+        Schoenhage-Strassen algorithm
+        Toom-Cook multiplication
+      Modular square root
+        Tonelli-Shanks algorithm
+        Cipolla's algorithm
+      Odlyzko-Schoenhage algorithm
+      Lenstra-Lenstra-Lovasz algorithm
+      Primality tests
+        AKS
+        Baillie-PSW
+        Fermat
+        Lucas
+        Miller-Rabin
+        Sieve of Atkin
+        Sieve of Eratosthenes
+        Sieve of Sundaram
+    Numerical algorithms
+      Differential equation solving
+        Euler method
+        Backward euler method
+        Trapezoidal rule
+        Linear multistep method
+        Runge-Kutta method
+        Euler integration
+        Multigrid methods
+        Partial differential equations
+        Finite difference method
+        Crank-Nicolson method
+        Lax-Wendroff
+        Verlet integration
+      Elemetary and special functions
+        Computing pi
+          Borwein's algorithm
+          Gauss-Legendre algorithm
+          Bailey-Borwein-Plouffe formula
+        Division algorithms
+          Long
+          Restoring
+          Non-restoring
+          SRT
+          Newton-Raphson
+          Goldschmidt
+        Hyperbolic/Trigometric functions
+          BKM algorithm
+          CORDIC
+        Exponentation
+          Addition-chaing
+          Exponentiating by squaring
+        Montgomery reduction
+        Multiplication
+          Booth's
+          Fuerer's
+          Karatsuba
+          Schoenhage-Strassen
+          Toom-Cook
+        Multiplicative inverse algorithms (Netwon's method)
+        Rounding functions
+        Spigot algorithm
+        Square and Nth root
+          Alpha max plus beta min algorithm
+          Methods of computing square roots
+          nth root algorithm
+          Shifting nth-root algorithm
+        Summation
+          Binary splitting
+          Kahan summation algorithm
+        Unrestricted algorithm
+    Geometric
+      Filtered back-projection
+      Level set method
+    Interpolation and Extrapolation
+      Birkhoff
+      Cubic
+      Hermite
+      Lagrange
+      Linear
+      Monotone cubic
+      Multivariate
+        Bicubic
+        Bilinear
+        Lanczos resampling
+        Nearest-neighbor
+        Tricubic
+      Pareto
+      Polynomial
+        Neville's algorithm
+      Spline
+        De Boor algorithm
+        De Casteljau's algorithm
+      Trigonometric
+    Linear algebra
+      Eigenvalue algorithms
+        Arnoldi iteration
+        Inverse iteration
+        Jacobi method
+        Lanczos iteration
+        Power iteration
+        QR iteration
+        Rayleigh quotient algorithm
+      Gram-Schidt process
+      Matrix multiplication algorithms
+        Cannon's algorithm
+        Coppersmith-Winograd algorithm
+        Freivalds' algorithm
+        Strassen algorithm
+      Solving systems of linear equations
+        Biconjugate gradient method
+        Conjugate gradient
+        Gaussian elimination
+        Gauss-Jordan elimination
+        Gauss-Seidel method
+        Levinson recursion
+        Stone's method
+        Successive over-relaxation
+        Tridiagonal matrix algorithm
+      Sparse matrix algorithms
+        Cuthill-McKee algorithm
+        Minimum degree algorithm
+        Symbolic Cholesky decomposition
+    Monte Carlo
+      Gibbs Sampling
+      Hybrid Monte Carlo
+      Metropolis-Hastings algorithm
+      Wang and Landau algorithm
+    Numerical Integration
+      MISER algorithm
+    Root finding
+      Bisection method
+      Fase position method
+      Newton's method
+      Halley's method
+      Secant method
+      Illinois method
+      Ridder's method
+      Muller's method
+  Optimization algorithms
+    Alpha-beta pruning
+    Branch and bound
+    Bruss algorithm
+    Chain matrix multiplication
+    Combinatorial optimization
+      Greedy randomized adaptive search procedure
+      Hungarian method
+    Constraint satisfaction
+      AC-3 algorithm
+      Difference map algorithm
+      Min conflicts algorithm
+      Chaff algorithm
+      Davis-Putnam algorithm
+      Davis-Putname-Logemann-Loveland algorithm
+      Exact cover problem
+        Algorithm X
+        Dancing links
+      Cross-entropy method
+      Differential evolution
+      Dynamic Programming problems
+      Ellipsoid method
+      Evolutionary computation
+        Evolution strategy
+        Gene expression programming
+        Genetic algorithms
+          Fitness proportionate selection
+          Stochastic universal sampling
+          Truncation selection
+          Tournament selection
+        Memetic algorithm
+        Swarm intelligence
+          Ant colony optimization
+          Bees algorithm
+          Particle swarm
+      Golden section search
+      Gradient descent
+      Harmony search
+      Interior point method
+      Linear programming
+        Benson's algorithm
+        Dantzig-Wolfe decomposition
+        Delayed column generation
+        Integer linear programming
+        Branch and cut
+        Cutting-plane method
+        Karmarkar's algorithm
+        Simplex algorithm
+      Line search
+      Local search
+        Random-restart hill climbing
+        Tabu search
+      Minimax
+      Nearest neighbor search
+        Best bin first
+      Newton's method in optimization
+      Nonlinear optimization
+        BFGS method
+        Gauss-Newton algorithm
+        Levenberg-Marquardt algorithm
+        Nelder-Mead algorithm
+      Odds algorithm
+      Simulated Annealing
+      Stochastic tunneling
+      Subset sum algorithm
+  Other
+    Astronomy
+      Doomsday algorithm
+      Zeller's congruence
+      Easter algorithms
+    Bioinformatics
+      Basic Local Alignment Search Tool
+      Kabsch algorithm
+      Velvet
+      Sorting by signed reversals
+      Maximum parsimony
+      UPGMA
+    Geoscience
+      Vincenty's formulae
+    Linguistics
+      Lesk algorithm
+      Stemming algorithm
+      Sukhotin's algorithm
+    Medicine
+      ESC algorithm
+      Manning criteria
+      Pulmonary embolism
+      Texas Medication Algorithm Project
+    Physics
+      Constraint algorithm
+      Demon algorithm
+      Featherstone's algorithm
+      Ground state approximation
+        Variational method
+        Ritz method
+      N-body problems
+        Barnes-Hut simulation
+        Fast multipole method
+      Rainflow-counting algorithm
+      Sweep and prune
+      VEGAS algorithm
+    Statistics
+      Algorithms for calculating variance
+      Approximate counting algorithm
+      Bayesian statistics
+        Nested sampling algorithm
+      Clustering algorithms
+        Average-linkage clustering
+        Canopy clustering algorithm
+        Complete-linkage clustering
+        DBSCAN
+        Expectation-maximization algorithm
+        Fuzzy clustering
+          Fuzzy c-means
+          FLAME clustering
+        KHOPCA clustering algorithm
+        k-means clustering
+        k-means++
+        k-medoids
+        Linde-Buzo-Gray algorithm
+        Lloyd's algorithm
+        OPTICS
+        Single-linkage clustering
+        SUBCLU
+        Ward's Method
+        WACA clustering algorithm
+      Estimation Theory
+        Expectation-maximization algorithm
+        Ordered subset expectation maximization
+        Odds algorithm
+        Kalman filter
+      False nearest neighbor algorithm
+      Hidden Markov model
+        Baum-Welch algorithm
+        Forward-backward algorithm
+        Viterbi algorithm
+      Partial least squares algorithm
+      Queuing theory
+        Buzen's algorithm
+      RANSAC
+      Scoring algorithm
+      Yamartino method
+      Ziggurat algorithm
+  Computer Science
+    Computer architecture
+      Tomasulo algorithm
+    Computer graphics
+      Line clipping
+        Cohen-Sutherland
+        Cyrus-Beck
+        Fast-clipping
+        Liang-Barsky
+        Nicholl-Lee-Nicholl
+      Polygon clipping
+        Sutherland-Hodgman
+        Vatti
+        Weiler-Atherton
+      Contour lines and Isosurfaces
+        Marching cubes
+        Marching squares
+        Marching tetrahedrons
+      Discrete Green's Theorem
+      Flood fill
+      Global Illumination
+        Ambient occlusion
+        Beam tracing
+        Cone tracing
+        Image-based lighting
+        Metropolis light transport
+        Path tracing
+        Photon mapping
+        Radiosity
+        Ray tracing
+      Hidden surface removal
+        Newell's algorithm
+        Painter's algorithm
+        Scanline rendering
+        Warnock algorithm
+      Line Drawing
+        Bresenham's line algorithm
+        DDA line algorithm
+        Xiaolin Wu's line algorithm
+      Midpoint circle algorithm
+      Ramer-Doublas-Peucker algorithm
+      Shading
+        Gouraud shading
+        Phong shading
+      Slerp
+      Summed area table
+    Cryptography
+      Asymmetric (public key) encryption
+        DSA
+        ElGamal
+        Elliptic curve cryptography
+        NTRUEncrypt
+        RSA
+      Cryptographic hash functions
+        HMAC
+        MD5
+        RIPEMD-160
+        RTR0
+        SHA-1
+        SHA-2
+        SHA-3
+        Tiger
+        WHIRLPOOL
+      Cryptographically secure pseudo-random number generators
+        Blum Blum Shu
+        Fortuna
+        Linear feedback shift register
+        Yarrow algorithm
+      Diffie-Hellman key exchange
+      Key derivation function
+        bcrypt
+        PBKDF2
+        scrypt
+      Secret sharing
+        Blakely's Scheme
+        Shamir's Scheme
+      Symmetric (secret key) encryption
+        AES
+        Blowfish
+        Twofish
+        Threefish
+        DES
+        IDEA
+        RC4
+        Praktisi SEO
+        Tiny Encryption Algorithm
+    Digital Logic
+      Boolean minimzation
+        Quine-McCluskey algorithm
+        Petrick's method
+        Espresso heuristic logic minimizer
+    Machine learning/statistical classification
+      ALOPEX
+      Association Rule Learning
+        Apriori
+        Eclat
+        FP-growth
+        One-attribute rule
+        Zero-attribute rule
+      Boosting (meta-algorithm)
+        AdaBoost
+        BrownBoost
+        LogitBoost
+        LPBoost
+      Bootstrap aggregating
+      Decision Trees
+        C4.5
+        ID3
+        Decision stream
+      k-nearest neighbors
+      Linde-Buzo-Gray
+      Locality-sensitive hashing
+      Neural Network
+        Backpropagation
+        Hopfield net
+        Perceptron
+        Pulse-coupled neural network
+        Radial basis function network
+        Self-organizing map
+      Random forest
+      Reinforcement Learning
+        Q-Learning
+        State-Action-Reword-State-Action
+        Temporarl difference learning
+      Relevance Vector Machine
+      Support Vector Machine
+      Structured SVM
+      Winnow algorithm
+    Programming language theory
+      C3 linearization
+      Chaitin's algorithm
+      Hindley-Milner type inference
+      Rete algorithm
+      Sethi-Ullman algoritm
+      Parsing
+        CYK algorithm
+        Early parser
+        GLR parser
+        Inside-outside algorithm
+        LL parser
+        LR parser
+          Cannoical
+          LALR
+          Operator-precedence
+          SLR
+          Simple precendence
+        Packrat parser
+        Recursive descent parser
+        Shunting yard algorithm
+        Pratt parser
+        Jasa SEO
+        Lexical analysis
+    Quantum algorithms
+      Deutsch-Jozsa algorithm
+      Grover's algorithm
+      Shor's algorithm
+      Simon's algorithm
+    Theory of computation and automata
+      Hopcroft's algorithm
+      Powerset construction
+      Tarski-Kuratowski algorithm
+  Information theory and signal processing
+    Coding theory
+      Error Detection and correction
+        BCH codes
+          Berlekamp-Massey algorithm
+          Peterson-Gorenstein-Zierler algorithm
+          Reed-Solomon error correction
+        BCJR algorithm
+        Forward error correction
+        Gray code
+        Hamming codes ((7,4), distance, weight)
+        Redundancy checks
+          Adler-32
+          Cyclic redundancy check
+          Damm algorithm
+          Fletcher's checksum
+          Longitudinal redundancy check
+          Luhn algorithm
+          Luhn mod N
+          Parity
+          Verhoeff algorithm
+      Lossless compression
+        Burrows-Wheeler transform
+        Context tree weighting
+        Delta encoding
+        Dynamic Markov compression
+        Dictionary coders
+          Byte pair encoding
+          DEFLATE
+          Lempel-Ziv
+            LZ77
+            LZ78
+            Lempel-Ziv Jeff Bonwick
+            Lempel-Ziv-Markov chain algorithm
+            Lempel-Ziv-Oberhumer
+            Lempel-Ziv-Stac
+            Lempel-Ziv-Storer-Szymanski
+            Lempel-Ziv-Welch
+            LZWL
+            LZX
+            Lempel-Ziv Ross Williams
+          Entroy encoding
+            Arithmetic coding
+            Range encoding
+            Huffman coding
+            Adaptive huffman coding
+            Package-merge algorithm
+            Shanon-Fano coding
+            Pakar SEO
+            Shanon-Fano-Elias coding
+          Entropy encoding with known entroy characteristics
+            Golomb coding
+            Rice coding
+            Truncated binary encoding
+            Unary coding
+            Universal codes
+            Elias delta/gamma/omega coding
+            Exponential-Golomb coding
+            Fibonacci coding
+            Levenshtein coding
+          FELICS
+          Incremental encoding
+          PPM
+          Run-length encoding
+          SEQUITUR algorithm
+        Lossy compression algorithms
+          3Dc
+          Audio/Speech compression
+            A-law algorithm
+            Code-excited linear prediction
+            Linear predictive coding
+            Mu-law algorithm
+            Warped Linear Predictive Coding
+          Image Compression
+            Block Truncation Coding
+            Embedded Zerotree Wavelet
+            Fast Cosine Transform algorithms
+            Fractal compression
+            Set Partitioning in Hierarchical Trees
+            Wavelet compression
+          Transform coding
+          Video compression
+          Vector quantization
+    Digital signal processing
+      Adaptive-additive algorithm
+      Discrete Fourier transform
+        Bluestein's FFT
+        Bruun's FFT
+        Cooley-Turkey FFT
+        Fast Fourier Transform
+        Prime-factor FFT
+        Rader's FFT
+      Fast folding algorithm
+      Gerchberg-Saxton algorithm
+      Goertzel algorithm
+      Karplus-Strong string syntehsis
+      Image processing
+        Contrast enhancement
+          Histogram equalization
+          Adaptive histogram equalization
+        Connected-component labeling
+        Dithering/half-toning
+          Error diffusion
+          Floyd-Steinberg dithering
+          Ordered dithering
+          Riemersma dithering
+        Elser difference-map algorithm
+        Feature detection
+          Canny edge detector
+          Generalised Hough transform
+          Hough transform
+          Marr-Hildreth algorithm
+          SIFT
+          SURF
+        Richardson-Lucy deconvolution
+        Blind deconvolution
+        Median filtering
+        Seam carving
+        Segmentation
+          GrowCut algorithm
+          Random walker algorithm
+          Region growing
+          Watershed transformation
+  Software Engineering
+    Cache algorithms
+    CHS conversion
+    Double dabble
+    Hash function
+      Fowler-Noll-Vo hash function
+      Pearson hashing
+      Zobrist hashing
+    Unicode Collation Algorithm
+    Xor swap algorithm
+  Database algorithms
+    ARIES
+    Join algorithms
+      Block nested loop
+      Hash join
+      Nested loop join
+      Sort-Merge join
+  Distributed Systems algorithms
+    Bully algorithm
+    Byzantine fault tolerance
+    Clock synchronization
+      Berkeley algorithm
+      Cristian's algorithm
+      Intersection algorithm
+      Marzullo's algorithm
+    Detection of Process Termination
+      Dijkstra-Scholten algorithm
+      Huang's algorithm
+    Lamport ordering
+    Mutual exclusion
+      Lamport's Distributed Mutual Exclusion Algorithm
+      Naimi-Trehel's log(n) algorithm
+      Maekawa's Algorithm
+      Raymond's Algorithm
+      Ricart-Agrawala Algorithm
+    Paxos algorithm
+    Snapshot algorithms
+      Chandy-Lamport algorithm
+    Vector clocks
+    Memory allocation and deallocation algorithms
+      Buddy memory allocation
+      Garbage collectors
+        Cheney's algorithm
+        Generational garbage collector
+        Mark-compact algorithm
+        Mark and sweep
+        Semi-space collector
+      Reference counting
+  Networking
+     Karn's Algorithm
+     Lulea algorithm
+     Network congestion
+       Exponential backoff
+       Nagle's algorithm
+       Truncated binary exponential backoff
+  Operating Systems
+    Banker's algorithm
+    Page replacement algorithms
+      Adaptive replacement cache
+      Clock with Adaptive Replacement
+    Process synchronization
+      Dekker's algorithm
+      Lamport's Bakery algorithm
+      Peterson's algorithm
+    Scheduling
+      Earliest deadline first scheduling
+      Fair-share scheduling
+      Least slack time scheduling
+      List scheduling
+      Multi-level feedback queue
+      Rate-monotonic scheduling
+      Round-robin scheduling
+      Shortest job next
+      Shortest remaining time
+      Top-nodes algorithm
+    Disk Scheduling
+      Elevator algorithm
+      Shortest seek first

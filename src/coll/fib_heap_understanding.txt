@@ -17,7 +17,7 @@ FibHeap Operations:
     add to the root list and update the min pointer
   peek: O(1)
     return the minimum element
-  merge: O(1)
+  merge/combine: O(1)
     combine the root list queue
     pick the minimum, min element
   pop: O(log n)
