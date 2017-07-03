@@ -7,14 +7,19 @@ use std::collections::hash_map::Entry;
 // TODO: Refactoring
 // TODO: Figure out dec_key operation
 
-struct FibHeapNode<T: Ord + Debug> {
-    elem: Option<T>,
-    subnodes: Vec<FibHeapNode<T>>,
-    marked: bool,
-    rank: usize,
-}
+/*
+It's odd how easy it is to come back to Rust, how Rust actually feels nice and all. I'm not sure why though.
 
-pub struct FibHeap<T: Ord + Debug> {
+I remember I gave up on using Rust to implement Spero because I kept running into the borrow checker, but
+I didn't really have any issue with it here, outside of a few areas where I had to tiptoe around it.
+
+But overall it just went really nice and easy, extremely unintrusive. Is this because of all my work on Spero,
+which models a lot of its design on Rust, or on the compiler, particularly my insistence on unique_ptr which
+mirrors a lot of Rust's "borrow-checking" semantics.
+
+ */
+
+pub struct FibHeap<T> {
     forest: Vec<FibHeapNode<T>>,
     max_index: usize,
     count: usize
@@ -28,6 +33,9 @@ impl<T: Ord + Debug> FibHeap<T> {
             count: 0,
         }
     }
+
+    // Note: In an effort to mimic the interface provided in the rust standard library
+    // DecKey is not a supported operation
 
     // Add an element to the heap
     pub fn push(&mut self, elem: T) {
@@ -45,15 +53,33 @@ impl<T: Ord + Debug> FibHeap<T> {
     pub fn peek(&self) -> Option<&T> {
         self.forest.get(self.max_index).and_then(|tree| tree.elem.as_ref())
     }
+
+    pub fn peek_mut(&mut self) -> Option<PeekMut<T>> {
+        if self.is_empty() {
+            None
+        } else {
+            PeekMut{ heap: self, sift: true }
+        }
+    }
     
     // Move all elements from another heap into this one
     pub fn merge(&mut self, mut other: Self) {
+        self.append(self, &mut other);
+    }
+
+    // This might have the same behavior as `merge`
+    pub fn append(&mut self, &mut other: Self) {
         if FibHeap::compare_elements(self.peek(), other.peek()) == Ordering::Less {
             self.max_index = self.forest.len() + other.max_index;
         }
 
         self.forest.append(&mut other.forest);
         self.count += other.count;
+    }
+
+    // Clears the heap
+    pub fn clear(&mut self) {
+        self.forest.clear()
     }
 
     // Puts the heap into the fibonacci state after a pop
@@ -148,16 +174,6 @@ impl<T: Ord + Debug> FibHeap<T> {
     pub fn is_empty(&self) -> bool {
         self.len() == 0
     }
-
-    // functions to look at adding later
-    // dec_key - (min) fib heaps have this method but I'm unsure of how to add it
-    // append - merge but doesn't destroy the other heap
-    // clear - remove all elements from the heap
-    // drain - cleans the heap, returns an iterator over the removed elements
-    // into_sorted_vec
-    // into_vec
-    // peek_mut
-    // iter
     
     // Helper methods to abstract the process of ordering FibHeapNodes (could just implement Ordering)
     fn compare_nodes(a: &FibHeapNode<T>, b: &FibHeapNode<T>) -> Ordering {
@@ -176,12 +192,6 @@ impl<T: Ord + Debug> FibHeap<T> {
 
 }
 
-enum StateBehavior {
-    Break,
-    Continue,
-    Modify(usize, usize),
-}
-
 impl<T: Ord + Debug> Debug for FibHeapNode<T> {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         write!(f, "(elem: {:?}, sub: {:?})", self.elem, self.subnodes)
@@ -192,4 +202,62 @@ impl<T: Ord + Debug> Debug for FibHeap<T> {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         write!(f, "#size: {}, {:?}", self.count, self.forest)
     }
+}
+
+// Implementation structure for the FibHeap tree
+struct FibHeapNode<T> {
+    elem: Option<T>,
+    subnodes: Vec<FibHeapNode<T>>,
+    marked: bool,
+    rank: usize,
+}
+
+// Structure wrapping a mutable reference on the "largest" element in a fib heap
+pub struct PeekMut<'a, T: 'a + Ord> {
+    heap: &'a mut FibHeap<T>,
+    sift: bool,
+}
+
+
+impl<'a, T: Ord + Debug> Debug for PeekMut<'a, T> {
+    fn fmt(&self, f: &mut Formatter) -> Result {
+        f.debug_tuple("PeekMut")
+         .field(&self.heap.forest[0])
+         .finish()
+    }
+}
+
+impl<'a, T: Ord> Drop for PeekMut<'a, T> {
+    fn drop(&mut self) {
+        if self.sift {
+            self.pop();
+        }
+    }
+}
+
+impl<'a, T: Ord> Deref for PeekMut<'a, T> {
+    type Target = T;
+    fn deref(&self) -> &T {
+        &self.heap.forest[0]
+    }
+}
+
+impl<'a, T: Ord> DerefMut for PeekMut<'a, T> {
+    fn deref_mut(&mut self) -> &mut T {
+        &mut self.heap.forest[0]
+    }
+}
+
+impl<'a, T: Ord> PeekMut<'a, T> {
+    /// Removes the peeked value from the heap and returns it.
+    pub fn pop(mut this: PeekMut<'a, T>) -> T {
+        let value = this.heap.pop().unwrap();
+        value
+    }
+}
+
+enum StateBehavior {
+    Break,
+    Continue,
+    Modify(usize, usize),
 }
