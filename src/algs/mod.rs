@@ -1,2 +1,2 @@
-pub mod sorts;
+pub mod sort;
 pub mod astar;
