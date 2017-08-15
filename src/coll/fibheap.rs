@@ -3,6 +3,7 @@ use std::fmt;
 use std::fmt::{Debug, Formatter};
 use std::collections::HashMap;
 use std::collections::hash_map::Entry;
+use std::ops;
 
 // TODO: Refactoring
 // TODO: Figure out dec_key operation
@@ -54,21 +55,21 @@ impl<T: Ord + Debug> FibHeap<T> {
         self.forest.get(self.max_index).and_then(|tree| tree.elem.as_ref())
     }
 
-    pub fn peek_mut(&mut self) -> Option<PeekMut<T>> {
-        if self.is_empty() {
-            None
-        } else {
-            PeekMut{ heap: self, sift: true }
-        }
-    }
+    // pub fn peek_mut(&mut self) -> Option<PeekMut<T>> {
+    //     if self.is_empty() {
+    //         None
+    //     } else {
+    //         Some(PeekMut{ heap: self, sift: true, item: None })
+    //     }
+    // }
     
     // Move all elements from another heap into this one
     pub fn merge(&mut self, mut other: Self) {
-        self.append(self, &mut other);
+        self.append(&mut other);
     }
 
     // This might have the same behavior as `merge`
-    pub fn append(&mut self, &mut other: Self) {
+    pub fn append(&mut self, other: &mut FibHeap<T>) {
         if FibHeap::compare_elements(self.peek(), other.peek()) == Ordering::Less {
             self.max_index = self.forest.len() + other.max_index;
         }
@@ -213,48 +214,50 @@ struct FibHeapNode<T> {
 }
 
 // Structure wrapping a mutable reference on the "largest" element in a fib heap
-pub struct PeekMut<'a, T: 'a + Ord> {
-    heap: &'a mut FibHeap<T>,
-    sift: bool,
-}
+// pub struct PeekMut<'a, T: 'a + Ord + Debug> {
+//     heap: &'a mut FibHeap<T>,
+//     item: Option<T>,
+//     sift: bool,
+// }
 
 
-impl<'a, T: Ord + Debug> Debug for PeekMut<'a, T> {
-    fn fmt(&self, f: &mut Formatter) -> Result {
-        f.debug_tuple("PeekMut")
-         .field(&self.heap.forest[0])
-         .finish()
-    }
-}
+// impl<'a, T: Ord + Debug> Debug for PeekMut<'a, T> {
+//     fn fmt(&self, f: &mut Formatter) -> Result<(), fmt::Error> {
+//         f.debug_tuple("PeekMut")
+//          .field(&self.heap.forest[0])
+//          .finish()
+//     }
+// }
 
-impl<'a, T: Ord> Drop for PeekMut<'a, T> {
-    fn drop(&mut self) {
-        if self.sift {
-            self.pop();
-        }
-    }
-}
+// impl<'a, T: Ord + Debug> Drop for PeekMut<'a, T> {
+//     fn drop(&mut self) {
+//         if self.sift {
+//             self.heap.pop();
+//         }
+//     }
+// }
 
-impl<'a, T: Ord> Deref for PeekMut<'a, T> {
-    type Target = T;
-    fn deref(&self) -> &T {
-        &self.heap.forest[0]
-    }
-}
+// impl<'a, T: Ord + Debug> ops::Deref for PeekMut<'a, T> {
+//     type Target = T;
+//     fn deref(&self) -> &T {
+//         self.item = self.heap.forest[0].elem;
+//         &self.item.unwrap()
+//     }
+// }
 
-impl<'a, T: Ord> DerefMut for PeekMut<'a, T> {
-    fn deref_mut(&mut self) -> &mut T {
-        &mut self.heap.forest[0]
-    }
-}
+// impl<'a, T: Ord + Debug> ops::DerefMut for PeekMut<'a, T> {
+//     fn deref_mut(&mut self) -> &mut T {
+//         &mut self.heap.forest[0].elem.unwrap()
+//     }
+// }
 
-impl<'a, T: Ord> PeekMut<'a, T> {
-    /// Removes the peeked value from the heap and returns it.
-    pub fn pop(mut this: PeekMut<'a, T>) -> T {
-        let value = this.heap.pop().unwrap();
-        value
-    }
-}
+// impl<'a, T: Ord + Debug> PeekMut<'a, T> {
+//     /// Removes the peeked value from the heap and returns it.
+//     pub fn pop(mut this: PeekMut<'a, T>) -> T {
+//         let value = this.heap.pop().unwrap();
+//         value
+//     }
+// }
 
 enum StateBehavior {
     Break,
