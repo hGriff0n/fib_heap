@@ -211,6 +211,8 @@ Neat Datastructures
   Quad-edge
   Routing table
   Symbol table
+  Gap buffer
+  Model T enfilade
 
 Neat Algorithms
   Hyperloglog

@@ -4,7 +4,7 @@ use rust_algos::*;
 use coll::*;
 
 fn main() {
-    let mut heap: SimpleBloom = SimpleBloom::new(32, 10);
+    let mut heap = SimpleBloom::new(32, 10);
     
     heap.add(13);
     heap.add(15);

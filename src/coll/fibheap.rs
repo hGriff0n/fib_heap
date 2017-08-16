@@ -3,7 +3,6 @@ use std::fmt;
 use std::fmt::{Debug, Formatter};
 use std::collections::HashMap;
 use std::collections::hash_map::Entry;
-use std::ops;
 
 // TODO: Refactoring
 // TODO: Figure out dec_key operation
@@ -206,6 +205,7 @@ impl<T: Ord + Debug> Debug for FibHeap<T> {
 }
 
 // Implementation structure for the FibHeap tree
+#[allow(dead_code)]
 struct FibHeapNode<T> {
     elem: Option<T>,
     subnodes: Vec<FibHeapNode<T>>,
